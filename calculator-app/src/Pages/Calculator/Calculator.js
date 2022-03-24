@@ -3,6 +3,7 @@ import Header from '../../Components/Header';
 import style from './style.module.css';
 import Emoji from '../../Emojis';
 import { catchParenthesisError } from '../../Helpers/CatchErrors';
+import { parenthesisOperation } from '../../Helpers/Calculations';
 <meta charset="UTF-8" />
 
 const Calculator = () => {
@@ -15,11 +16,8 @@ const Calculator = () => {
     if (catchParenthesisError(expression)) {
       return setError(true);
     }
-    if (expression.includes('(') && expression.includes(')')) {
-      const initialParentheses = expression.findIndex((el) => el === '(');
-      const closureParentheses = expression.findIndex((el) => el === ')');
-      console.log(initialParentheses);
-      console.log(closureParentheses);
+    if (expression.includes('(')) {
+      parenthesisOperation(expression);
       setError(false);
     }
     // const result = String(expression.reduce((a, b) => Number(a) + Number(b)));
