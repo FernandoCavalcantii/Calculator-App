@@ -39,22 +39,26 @@ const Header = () => {
   }
 
   return (
-    <header className={ style.header }>
+    <>
       {
         history.location.pathname === "/" ? 
-        <>
-          <h1>Calculadora</h1>
-          <input type="text" placeholder="Username" onChange={ handleUserChange }/>
-          <input type="password" placeholder="Password" onChange={ handlePasswordChange }/>
-          <button type="submit" onClick={ login } disabled={ disabled }>Login</button>
-        </> : 
-        <>
-          <h1>Calculadora</h1>
-          {storageName}
-          <button type="submit" onClick={ logout }>Logout</button>
-        </>
+        <header className={ style.loginHeader }>
+          <h1>Calculator</h1>
+          <div className={ style.profileContainer }>
+            <input type="text" placeholder="Username" onChange={ handleUserChange }/>
+            <input type="password" placeholder="Password" onChange={ handlePasswordChange }/>
+            <button id="login-btn"type="submit" onClick={ login } disabled={ disabled }>Login</button>
+          </div>
+        </header> : 
+        <header className={ style.calculatorHeader }>
+          <h1>Calculator</h1>
+          <div className={ style.profileContainer }>
+            {`User: ${storageName}`}
+            <button type="submit" onClick={ logout }>Logout</button>
+          </div>
+        </header>
       }
-    </header>
+    </>
   )
 }
 

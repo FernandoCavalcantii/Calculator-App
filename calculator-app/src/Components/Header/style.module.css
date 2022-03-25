@@ -1,4 +1,39 @@
-.header {
-  align-items: center;
+.calculatorHeader {
+  align-items: stretch;
+  background-color: #1d2c3a;
+  border-bottom: 2px solid black;
+  color: white;
   display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.calculatorHeader h1 {
+  margin-left: 10%;
+}
+
+.profileContainer {
+  align-items: center;
+  border-left: 2px solid #0f171e;
+  display: flex;
+  margin-right: 2.5%;
+  padding-left: 25px;
+  width: fit-content;
+}
+
+.profileContainer button {
+  margin-left: 1em;
+}
+
+.loginHeader {
+  background-color: #1d2c3a;
+  border-bottom: 2px solid black;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.loginHeader button:disabled {
+  color: rgba(255, 255, 255, 0.801);
 }
