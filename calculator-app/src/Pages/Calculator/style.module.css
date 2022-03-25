@@ -1,0 +1,72 @@
+body {
+  background-color: #20b9a5;
+}
+
+.calculatorContainer {
+  display: grid;
+  grid-template-columns: repeat(6, 5em);
+  margin-top: 5px;
+}
+
+.calculatorContainer button {
+  background-color: rgba(0, 0, 0, 0.637);
+  border: 0.1px solid rgba(0, 0, 0, 0.507);
+  border-radius: 5%;
+  color: white;
+  margin: 1px;
+}
+
+.calculatorContainer button:hover {
+  background-color: rgba(0, 0, 0, 0.575);
+  transition: 0.3s ease-in-out;
+}
+
+.calculatorContainer :nth-child(23) {
+  background-color: rgb(36, 170, 31);
+  border-radius: 5%;
+  margin: 1px;
+  width: 11.85em;
+}
+
+.calculatorContainer :nth-child(23):hover {
+  background-color: rgb(42, 199, 36);
+  transition: 0.3s ease-in-out;
+  width: 11.85em;
+}
+
+.displayContainer {
+  align-items: center;
+  border-bottom: 2.5px solid black;
+  border-top: 2.5px solid black;
+  display: flex;
+  font-size: 1.6em;
+  height: 2em;
+}
+
+.historyContainer {
+  height: fit-content;
+  min-height: 2em;
+  max-height: 10em;
+  overflow-y: auto;
+}
+
+.historyEqual {
+  margin-left: 20em;
+  position: absolute;
+}
+
+.historyItem {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.mainContainer {
+  background-color: #9bb6a3;
+  border: 2.5px solid black;
+  box-shadow: 0px 0px 43px 17px rgb(93, 93, 93);
+  margin: auto;
+  margin-top: 10em;
+  padding: 3px;
+  width: 30em;
+}

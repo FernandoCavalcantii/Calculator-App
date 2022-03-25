@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import LoginContext from "../../Context/Login/LoginContext";
 import { useHistory } from 'react-router-dom';
+import style from './style.module.css';
 
 const Header = () => {
   const { userName, setUserName } = useContext(LoginContext);
@@ -38,7 +39,7 @@ const Header = () => {
   }
 
   return (
-    <header>
+    <header className={ style.header }>
       {
         history.location.pathname === "/" ? 
         <>
