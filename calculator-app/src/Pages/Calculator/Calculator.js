@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Header from '../../Components/Header';
 import style from './style.module.css';
 import Emoji from '../../Emojis';
+import Footer from '../../Components/Footer/Footer';
 
 <meta charset="UTF-8" />
 
@@ -95,6 +96,7 @@ const Calculator = () => {
           })}
         </section>
       </main>
+      <Footer />
     </>
   )
 };
