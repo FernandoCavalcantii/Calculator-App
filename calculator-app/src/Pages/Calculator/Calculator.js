@@ -1,59 +1,96 @@
-import React, { useState } from 'react';
-import Header from '../../Components/Header';
-import style from './style.module.css';
-import Emoji from '../../Emojis';
-import Footer from '../../Components/Footer/Footer';
+import React, { useContext } from "react";
+import Header from "../../Components/Header";
+import style from "./style.module.css";
+import Emoji from "../../Emojis";
+import Footer from "../../Components/Footer/Footer";
+import Calculation from "../../Calculation";
+import CalculationContext from "../../Context/Calculator/CalculationContext";
 
-<meta charset="UTF-8" />
+<meta charset="UTF-8" />;
 
 const Calculator = () => {
-  const characters  = [7, 8, 9, '/', <Emoji symbol="⟵"/>, <Emoji symbol="⊂"/>, 4, 5, 6, <Emoji symbol="×"/>, '(', ')', 1, 2, 3, '-', <Emoji symbol="x²"/>, <Emoji symbol="√"/>, 0, '.', '%', '+', '='];
-  const [display, setDisplay] = useState('');
-  const [history, setHistory] = useState([]);
-  const [mathExpression, setMathExpression] = useState('');
-  const [error, setError] = useState(false);
+  const characters = [
+    7,
+    8,
+    9,
+    "/",
+    <Emoji symbol="⟵" />,
+    <Emoji symbol="⊂" />,
+    4,
+    5,
+    6,
+    <Emoji symbol="×" />,
+    "(",
+    ")",
+    1,
+    2,
+    3,
+    "-",
+    <Emoji symbol="x²" />,
+    <Emoji symbol="√" />,
+    0,
+    ".",
+    "%",
+    "+",
+    "=",
+  ];
+  // const [display, setDisplay] = useState("");
+  // const [history, setHistory] = useState([]);
+  // const [mathExpression, setMathExpression] = useState("");
+  // const [error, setError] = useState(false);
+  const {
+    display,
+    setDisplay,
+    mathExpression,
+    setMathExpression,
+    history,
+    setHistory,
+    error,
+    setError,
+  } = useContext(CalculationContext);
 
-  const calculate = () => {
-    try {
-      const result = String(eval(mathExpression))
-      setDisplay(result);
-      setMathExpression(result);
-      setHistory([...history, [display, result]])
-      console.log(history);
-      setError(false);
-    } catch {
-      setError(true);
-    }    
-  }
   const handleClick = ({ target }) => {
-    const expression = display.split('');
-    switch(target.innerText) {
+    const expression = display.split("");
+    const splitMathExpression = mathExpression.split("");
+    switch (target.innerText) {
       case "⟵":
         expression.pop();
-        setDisplay(expression.join(''));
-        setMathExpression(expression.join(''));
+        splitMathExpression.pop();
+        setDisplay(expression.join(""));
+        setMathExpression(splitMathExpression.join(""));
         break;
       case "⊂":
-        setDisplay('');
-        setMathExpression('');
+        setDisplay("");
+        setMathExpression("");
         break;
       case "x²":
-        setDisplay(display + '²');
-        setMathExpression(mathExpression + `*${mathExpression.split('')[mathExpression.length - 1]}`);
+        setDisplay(display + "²");
+        setMathExpression(
+          mathExpression +
+            `*${mathExpression.split("")[mathExpression.length - 1]}`
+        );
         break;
       case "×":
         setDisplay(display + target.innerText);
-        setMathExpression(mathExpression + '*');
+        setMathExpression(mathExpression + "*");
         break;
       case "√":
         setDisplay(display + target.innerText);
-        setMathExpression()
+        setMathExpression();
         break;
       case "=":
-        calculate();
+        Calculation(
+          display,
+          setDisplay,
+          mathExpression,
+          setMathExpression,
+          history,
+          setHistory,
+          setError
+        );
         break;
       default:
-        if (display.includes('.') && target.innerText === '.') {
+        if (display.includes(".") && target.innerText === ".") {
           setDisplay(display);
           setMathExpression(mathExpression);
         } else {
@@ -65,40 +102,52 @@ const Calculator = () => {
   return (
     <>
       <Header />
-      <main className={ style.mainContainer }>
-        <section className={ style.historyContainer }>
-          {
-            history.map((historyArray) => {
-              return (
-                <section className={ style.historyItem }>
-                  <p>{historyArray[0]}</p>
-                  <p className={ style.historyEqual }>=</p>
-                  <p>{historyArray[1]}</p>
-                </section>
-              )
-            })
-          }
+      <main className={style.mainContainer}>
+        <section className={style.historyContainer}>
+          {history.map((historyArray, index) => {
+            return (
+              <section
+                key={`Math operation ${index}`}
+                className={style.historyItem}
+              >
+                <p>{historyArray[0]}</p>
+                <p className={style.historyEqual}>=</p>
+                <p>{historyArray[1]}</p>
+              </section>
+            );
+          })}
         </section>
-        <section className={ style.displayContainer }>
-          { display }
-        </section>
-        {error ? <p>Malformed expression</p> : ''}
-        <section className={ style.calculatorContainer }>
+        <section className={style.displayContainer}>{display}</section>
+        {error ? <p>Malformed expression</p> : ""}
+        <section className={style.calculatorContainer}>
           {characters.map((character, index) => {
-            if (character === '=') {
+            if (character === "=") {
               return (
-                <button key={ `button-${index}` } type="button" className="equal" onClick={ handleClick }>{character}</button>
-              )
+                <button
+                  key={`button-${index}`}
+                  type="button"
+                  className="equal"
+                  onClick={handleClick}
+                >
+                  {character}
+                </button>
+              );
             }
             return (
-              <button key={ `button-${index}` } type="button" onClick={ handleClick }>{character}</button>
-            )
+              <button
+                key={`button-${index}`}
+                type="button"
+                onClick={handleClick}
+              >
+                {character}
+              </button>
+            );
           })}
         </section>
       </main>
       <Footer />
     </>
-  )
+  );
 };
 
 export default Calculator;
