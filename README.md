@@ -17,7 +17,7 @@ In the login page, the user must provide a username and a password with, at leas
 
   - `git@github.com:FernandoCavalcantii/calculator-app.git`.
   
-  2. Enter in the folder you just cloned:
+  2. Enter in the folder you just cloned.
   
   - `cd calculator-app`
 
@@ -32,6 +32,7 @@ In the login page, the user must provide a username and a password with, at leas
 
 <details>
 <summary><strong>Tecnologies used</strong></summary><br />
+
 - JavaScript.
 - React.
 - CSS.
@@ -41,5 +42,6 @@ In the login page, the user must provide a username and a password with, at leas
 
 <details>
 <summary><strong>Comming features</strong></summary><br />
+
 - Square root.
 </details>
