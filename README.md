@@ -15,7 +15,7 @@ In the login page, the user must provide a username and a password with, at leas
 
   1. Clone the repository.
 
-  - `git@github.com:FernandoCavalcantii/calculator-app.git`.
+  - `git clone git@github.com:FernandoCavalcantii/calculator-app.git`
   
   2. Enter in the folder you just cloned.
   
