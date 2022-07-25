@@ -3,9 +3,9 @@
   
 ## Bem vindo(a) ao repositório Calculator-App!
   
-Calculator App é um Projeto React Front-end com 02 páginas: login e calculator.
+Calculator App é um Projeto React Front-end com duas páginas: Login e Calculator (calculadora).
   
-Na página de login, o usuário precisa prover um nome de usuário e senha com, pelo menos, 04 caractéres cada, para habilitar o botão de login, que redireciona para a página da calculadora.
+Na página de Login, o usuário precisa prover um nome de usuário e senha com, pelo menos, 04 caractéres cada, para habilitar o botão de login, que redireciona para a página da calculadora.
   
 ### Funcionalidades da calculadora
 
@@ -46,9 +46,9 @@ Na página de login, o usuário precisa prover um nome de usuário e senha com, 
 
 ## Welcome to Calculator App repository!
 
-Calculator App is a React Front-end project with 02 pages: login and calculator.
+Calculator App is a React Front-end project with two pages: Login and Calculator.
 
-In the login page, the user must provide a username and a password with, at least, 04 characters each, in order to enable the login button, that redirects to the calculator page.
+In the Login page, the user must provide a username and a password with, at least, 04 characters each, in order to enable the login button, that redirects to the Calculator page.
 
 ### Calculator features
 
