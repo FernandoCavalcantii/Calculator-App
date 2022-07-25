@@ -1,7 +1,7 @@
 <details>
   <summary><strong>Português</strong></summary><br />
   
-## Bem vindo(a) ao repositório Calculator-App!
+## Bem vindo(a) ao repositório Calculator App!
   
 Calculator App é um Projeto React Front-end com duas páginas: Login e Calculator (calculadora).
   
