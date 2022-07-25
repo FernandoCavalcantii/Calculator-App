@@ -44,7 +44,7 @@ Na página de Login, o usuário precisa prover um nome de usuário e senha com, 
 
 </details>  
 
-## Welcome to Calculator App repository!
+## Welcome to Calculator App's repository!
 
 Calculator App is a React Front-end project with two pages: Login and Calculator.
 
