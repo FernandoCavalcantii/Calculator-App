@@ -19,7 +19,7 @@ In the login page, the user must provide a username and a password with, at leas
   
   2. Enter in the folder you just cloned.
   
-  - `cd calculator-app`
+  - `cd Calculator-App`
 
   3. Install dependencies.
 
