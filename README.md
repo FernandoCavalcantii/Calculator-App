@@ -1,10 +1,56 @@
+<details>
+  <summary><strong>Português</strong></summary><br />
+  
+## Bem vindo(a) ao repositório Calculator-App!
+  
+Calculator App é um Projeto React Front-end com 02 páginas: login e calculator.
+  
+Na página de login, o usuário precisa prover um nome de usuário e senha com, pelo menos, 04 caractéres cada, para habilitar o botão de login, que redireciona para a página da calculadora.
+  
+### Funcionalidades da calculadora
+
+- Display: mostra a expressão matemática que esta sendo atualmente escrita.
+- History: mostra todas as expressões matemáticas previamente executadas.
+- Operações: adicionar, subtrair, multiplicar, potência ao quadrado, resto e expressões com parênteses.
+
+### Como iniciar a aplicação
+
+1. Clone o repositório.
+
+  - `git clone git@github.com:FernandoCavalcantii/Calculator-App.git`
+  
+  2. Entre na pasta clonada.
+  
+  - `cd Calculator-App`
+
+  3. Instale as dependências.
+
+  - `npm install`
+
+  4. iniciar.
+  
+  - `npm start`  
+  
+### Tecnologias utilizadas
+  
+  - JavaScript.
+  - React.
+  - CSS.
+  - HTML.
+  
+### Em breve
+  
+- Raiz quadrada.
+
+</details>  
+
 ## Welcome to Calculator App repository!
 
 Calculator App is a React Front-end project with 02 pages: login and calculator.
 
 In the login page, the user must provide a username and a password with, at least, 04 characters each, in order to enable the login button, that redirects to the calculator page.
 
-### Calculator features:
+### Calculator features
 
 - Display: shows the current math expression that's being written.
 - History: shows all math expressions that where previously executed.
