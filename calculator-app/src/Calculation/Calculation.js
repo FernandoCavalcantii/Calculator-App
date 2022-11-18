@@ -9,6 +9,7 @@ const Calculation = (
 ) => {
   try {
     const result = String(eval(mathExpression));
+    console.log(mathExpression);
     setDisplay(result);
     setMathExpression(result);
     setHistory([...history, [display, result]]);
