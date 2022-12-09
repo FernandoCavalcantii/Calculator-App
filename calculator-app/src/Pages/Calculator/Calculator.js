@@ -51,13 +51,15 @@ const Calculator = () => {
 
   const handleClick = ({ target }) => {
     const expression = display.split('');
-    console.log('mathExpression', mathExpression);
     const splitMathExpression = mathExpression.split('');
-    console.log(splitMathExpression, 'splitmathexpression');
     switch (target.innerText) {
       case '⟵':
         expression.pop();
-        splitMathExpression.pop();
+        let char = splitMathExpression.pop();
+        if (char === ' ') {
+          splitMathExpression.pop();
+          splitMathExpression.pop();
+        }
         setDisplay(expression.join(''));
         setMathExpression(splitMathExpression.join(''));
         break;
@@ -74,8 +76,7 @@ const Calculator = () => {
         break;
       case '+':
         setDisplay(display + `${target.innerText}`);
-        setMathExpression(mathExpression + '+');
-        console.log(mathExpression);
+        setMathExpression(mathExpression + ' + ');
         break;
       case '-':
         setDisplay(display + ` ${target.innerText} `);
@@ -83,11 +84,11 @@ const Calculator = () => {
         break;
       case '×':
         setDisplay(display + `${target.innerText}`);
-        setMathExpression(mathExpression + '*');
+        setMathExpression(mathExpression + ' * ');
         break;
       case '/':
         setDisplay(display + `${target.innerText}`);
-        setMathExpression(mathExpression + '/');
+        setMathExpression(mathExpression + ' / ');
         break;
       case '√':
         setDisplay(display + target.innerText);

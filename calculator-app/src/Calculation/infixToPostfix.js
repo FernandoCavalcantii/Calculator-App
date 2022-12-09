@@ -1,4 +1,10 @@
-function convertToPostfix(infix) {
+import {
+  checkIfIsAnOperator,
+  getPrecedence,
+  separateNumbersAndOperators,
+} from './helpers.js';
+
+function infixToPostfix(infix) {
   let output = '';
   let stack = [];
   for (let i = 0; i < infix.length; i++) {
@@ -10,7 +16,6 @@ function convertToPostfix(infix) {
         getPrecedence(ch) <= getPrecedence(stack[stack.length - 1])
       ) {
         output += stack.pop();
-        // output += ' ';
       }
       stack.push(ch);
     } else if (ch === '(') {
@@ -18,22 +23,25 @@ function convertToPostfix(infix) {
     } else if (ch === ')') {
       while (stack.length !== 0 && stack[stack.length - 1] !== '(') {
         output += stack.pop();
-        // output += ' ';
       }
       stack.pop();
     } else {
       output += ch;
     }
   }
+
+  // Logic partially extracted from:
+  // https://www.tutorialspoint.com/how-to-create-infix-to-postfix-converter-in-javascript
+
   while (stack.length !== 0) {
     output += stack.pop();
-    // output += ' ';
   }
 
   let rawOutput = output.split(' ').filter((ch) => ch !== '');
+  let formatedOutput = separateNumbersAndOperators(rawOutput);
   let finalOutput = [];
-  console.log(rawOutput);
-  rawOutput.forEach((str) => {
+
+  formatedOutput.forEach((str) => {
     let lastCh = str[str.length - 1];
     if (!checkIfIsAnOperator(lastCh)) {
       finalOutput.push(str);
@@ -49,55 +57,7 @@ function convertToPostfix(infix) {
     }
   });
 
-  return finalOutput;
-}
-function getPrecedence(ch) {
-  if (ch === '+' || ch === '-') {
-    return 1;
-  } else if (ch === '*' || ch === '/') {
-    return 2;
-  } else {
-    return 0;
-  }
+  return finalOutput.filter((ch) => ch !== '');
 }
 
-function checkIfIsAnOperator(ch) {
-  if (ch === '+' || ch === '-' || ch === '*' || ch === '/') {
-    return true;
-  }
-  return false;
-}
-
-let expression = convertToPostfix('(10 + 5) + 3 * 4');
-console.log(expression);
-
-function solveExpression(expr) {
-  let stack = [];
-
-  for (let i = 0; i < expr.length; i += 1) {
-    let char = expr[i];
-    if (char === '+') {
-      // Sum operation
-      let result = stack.pop() + stack.pop();
-      stack.push(result);
-    } else if (char === '*') {
-      // Mul operation
-      let result = stack.pop() * stack.pop();
-      stack.push(result);
-    } else if (char === '/') {
-      // Div operation
-      let result = stack.pop() / stack.pop();
-      stack.push(result);
-    } else if (char === '-') {
-      let result = stack.pop() - stack.pop();
-      stack.push(result);
-    } else {
-      // add number operation
-      stack.push(parseFloat(char));
-    }
-
-    return stack.pop();
-  }
-}
-
-// console.log(solveExpression(expression));
+export default infixToPostfix;

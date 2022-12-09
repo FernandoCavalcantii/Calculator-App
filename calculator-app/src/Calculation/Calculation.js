@@ -1,3 +1,6 @@
+import infixToPostfix from './infixToPostfix';
+import solveExpression from './solveExpression';
+
 const Calculation = (
   display,
   setDisplay,
@@ -8,8 +11,8 @@ const Calculation = (
   setError
 ) => {
   try {
-    const result = String(eval(mathExpression));
-    console.log(mathExpression);
+    const postfix = infixToPostfix(mathExpression);
+    const result = String(solveExpression(postfix));
     setDisplay(result);
     setMathExpression(result);
     setHistory([...history, [display, result]]);
